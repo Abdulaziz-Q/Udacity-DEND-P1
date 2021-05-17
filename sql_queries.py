@@ -9,12 +9,12 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 # CREATE TABLES
 
 songplay_table_create = ("""CREATE TABLE IF NOT EXISTS songplays (
-songplay_id int , 
+songplay_id int PRIMARY KEY, 
 start_time time , 
 user_id int, 
 level int,
-song_id int,
-artist_id int,
+song_id varchar,
+artist_id varchar,
 session_id int,
 location varchar,
 user_agent varchar
@@ -23,7 +23,7 @@ user_agent varchar
 """)
 
 user_table_create = ("""CREATE TABLE IF NOT EXISTS users(
-    user_id int, 
+    user_id int PRIMARY KEY, 
     first_name varchar, 
     last_name varchar,
     gender varchar,
@@ -32,17 +32,17 @@ user_table_create = ("""CREATE TABLE IF NOT EXISTS users(
 """)
 
 song_table_create = ("""CREATE TABLE IF NOT EXISTS songs(
-    song_id int , 
-    title text, 
-    artist_id int, 
+    song_id varchar PRIMARY KEY , 
+    title varchar, 
+    artist_id varchar, 
     year int,
-    duration int
+    duration float
 
 );
 """)
 
 artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists(
-    artist_id int, 
+    artist_id int PRIMARY KEY, 
     name text, 
     location text,
     latitude numeric,
@@ -51,7 +51,7 @@ artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists(
 """)
 
 time_table_create = ("""CREATE TABLE IF NOT EXISTS time (
-    start_time time , 
+    start_time time PRIMARY KEY, 
     hour time, 
     day int,
     week int,
